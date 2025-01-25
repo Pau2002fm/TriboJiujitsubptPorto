@@ -1,16 +1,33 @@
-/* Estilos Generales */
+/* General */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Rodway Regular', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
-    color: #020202;
+    scroll-behavior: smooth;
+    overflow-x: hidden; /* Elimina el desbordamiento horizontal */
 }
 
-/* Header y Navegación */
+h1, h2 {
+    font-size: 2.5rem;
+    color: rgb(222, 222, 222);
+    text-align: center;
+}
+
+p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    text-align: center;
+    color: rgb(255, 255, 255);
+}
+
+/* Header y Navbar */
 header {
-    background-color: #000000;
-    padding: 35px 0;
+    background-color: transparent; /* Totalmente transparente */
+    position: absolute; /* Coloca el header sobre el video */
+    top: 0;
+    width: 100%;
+    z-index: 10; /* Asegura que el header esté encima del video */
+    padding: 20px 0; /* Ajusta el padding según sea necesario */
 }
 
 nav {
@@ -23,16 +40,21 @@ nav {
 }
 
 .logo img {
-    height: 175px; /* Ajusta el tamaño según tu diseño */
-    width: 175px; /* Asegúrate de que la imagen sea cuadrada para que se vea perfectamente redonda */
-    border-radius: 50%; /* Hace que los bordes sean redondos */
-    border: 2px solid #ffffff; /* Añade un borde si quieres (opcional) */
-    object-fit: cover; /* Asegura que la imagen se recorte bien dentro del círculo */
+    height: 130px;
+    width: 130px;
+    border-radius: 100%;
+    object-fit: cover;
+    margin-left: -15px;
+    margin-top: 20px;
+    border: 4px solid black;
 }
 
 .nav-links {
     list-style: none;
     display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
 }
 
 .nav-links li {
@@ -40,107 +62,165 @@ nav {
 }
 
 .nav-links a {
-    color: white;
+    color: rgb(255, 255, 255); /* Asegúrate de que los enlaces sean visibles */
     text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    padding: 8px 12px;
+    border-radius: 4px;
+    transition: color 0.2s ease, text-shadow 0.3s ease;
+}
+
+/* Hover effects por colores de cinturones */
+.nav-links li:nth-child(1) a:hover {
+    color: rgba(255, 255, 255, 0.737); /* Cinturón blanco */
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+}
+
+.nav-links li:nth-child(2) a:hover {
+    color: #1c88e6d4; /* Cinturón azul */
+    text-shadow: 0 0 10px rgba(28, 136, 230, 0.8);
+}
+
+.nav-links li:nth-child(3) a:hover {
+    color: #8d44ade7; /* Cinturón morado */
+    text-shadow: 0 0 10px rgba(142, 68, 173, 0.8);
+}
+
+.nav-links li:nth-child(4) a:hover {
+    color: #964b00c6; /* Cinturón marrón */
+    text-shadow: 0 0 10px rgba(150, 75, 0, 0.8);
+}
+
+.nav-links li:nth-child(5) a:hover {
+    color: rgba(0, 0, 0, 0.801); /* Cinturón negro */
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+}
+
+/* Video de Fondo */
+.video-section {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Ocupa toda la altura de la ventana */
+    overflow: hidden;
+}
+
+.video-section video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80%;
+    object-fit: cover; /* Asegura que el video cubra todo el fondo */
+    z-index: -1; /* Coloca el video detrás del header */
+}
+
+.video-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    z-index: 1; /* Coloca el texto sobre el video */
+    transition: text-shadow 0.2s ease;
+}
+
+.video-overlay h1:hover, .video-overlay p:hover {
+    text-shadow: 0 0 20px rgba(255, 255, 255, 1);
+}
+
+.video-overlay h1 {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+}
+
+.video-overlay p {
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+/* Secciones */
+section {
+    padding: 100px 20px;
+    min-height: 100vh;
+}
+
+/* Time Table */
+#time-table {
+    background-color: #1a1a1a;
+    color: white;
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.schedule {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* Solo lunes a viernes */
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.day {
+    background-color: #121212;
+    border: 1px solid #333;
+    border-radius: 8px;
+    padding: 15px;
+    text-align: left;
+}
+
+.day h3 {
+    text-align: center;
+    color: #f8f9fa;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.class {
+    background-color: #fff;
+    color: #333;
+    border-left: 4px solid #007bff; /* Cambia según el tipo de clase */
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+}
+
+.class.private {
+    background-color: #444;
+    color: #bbb;
+    text-align: center;
+    border-left: 4px solid #777;
+}
+
+.class.jiujitsu {
+    background-color: #1c88e6;
+    color: white;
+    border-left: 4px solid #1c88e6;
+}
+
+.class.nogi {
+    background-color: #8e44ad;
+    color: white;
+    border-left: 4px solid #8e44ad;
+}
+
+.class span {
+    display: block;
+    margin-top: 5px;
     font-weight: bold;
 }
 
-/* Hero Section */
-.hero {
-    background-image: url('ruta/a/imagen.jpg');
-    background-size: cover;
-    background-position: center;
-    color: white;
-    text-align: center;
-    padding: 100px 20px;
+#jiu-jitsu {
+    background-color: #e9e9e9;
 }
 
-.hero-content {
-    background: rgba(0, 0, 0, 0.5);
-    display: inline-block;
-    padding: 20px;
+#about-us {
+    background-color: #f4f4f4;
 }
 
-.cta-button {
-    background-color: #e63946;
-    color: white;
-    padding: 10px 20px;
-    text-decoration: none;
-    margin-top: 10px;
-    display: inline-block;
-    border-radius: 5px;
-}
-
-/* Clases Section */
-.classes {
-    padding: 50px 20px;
-    text-align: center;
-}
-
-.class-list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-.class-item {
-    margin: 20px;
-    max-width: 300px;
-}
-
-.class-item img {
-    width: 100%;
-    height: auto;
-}
-
-/* Entrenadores Section */
-.trainers {
-    padding: 50px 20px;
-    text-align: center;
-}
-
-.trainer-list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-.trainer-item {
-    margin: 20px;
-    max-width: 300px;
-}
-
-.trainer-item img {
-    width: 100%;
-    height: auto;
-    border-radius: 50%;
-}
-
-/* Contacto Section */
-.contact {
-    padding: 50px 20px;
-    text-align: center;
-}
-
-.contact form {
-    max-width: 500px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-}
-
-.contact input, .contact textarea, .contact button {
-    margin: 10px 0;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-.contact button {
-    background-color: #e63946;
-    color: white;
-    border: none;
-    cursor: pointer;
+#contact {
+    background-color: #e9e9e9;
 }
 
 /* Footer */
