@@ -1,0 +1,152 @@
+/* Estilos Generales */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #020202;
+}
+
+/* Header y Navegación */
+header {
+    background-color: #000000;
+    padding: 35px 0;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.logo img {
+    height: 175px; /* Ajusta el tamaño según tu diseño */
+    width: 175px; /* Asegúrate de que la imagen sea cuadrada para que se vea perfectamente redonda */
+    border-radius: 50%; /* Hace que los bordes sean redondos */
+    border: 2px solid #ffffff; /* Añade un borde si quieres (opcional) */
+    object-fit: cover; /* Asegura que la imagen se recorte bien dentro del círculo */
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin-left: 20px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Hero Section */
+.hero {
+    background-image: url('ruta/a/imagen.jpg');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: center;
+    padding: 100px 20px;
+}
+
+.hero-content {
+    background: rgba(0, 0, 0, 0.5);
+    display: inline-block;
+    padding: 20px;
+}
+
+.cta-button {
+    background-color: #e63946;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    margin-top: 10px;
+    display: inline-block;
+    border-radius: 5px;
+}
+
+/* Clases Section */
+.classes {
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.class-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.class-item {
+    margin: 20px;
+    max-width: 300px;
+}
+
+.class-item img {
+    width: 100%;
+    height: auto;
+}
+
+/* Entrenadores Section */
+.trainers {
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.trainer-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.trainer-item {
+    margin: 20px;
+    max-width: 300px;
+}
+
+.trainer-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 50%;
+}
+
+/* Contacto Section */
+.contact {
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.contact form {
+    max-width: 500px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.contact input, .contact textarea, .contact button {
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.contact button {
+    background-color: #e63946;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+}
