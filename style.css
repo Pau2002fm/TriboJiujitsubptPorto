@@ -1,14 +1,14 @@
 /* General */
 body {
-    font-family: 'Rodway Regular', sans-serif;
+    font-family: 'Roboto Condensed', sans-serif;
     margin: 0;
     padding: 0;
     scroll-behavior: smooth;
-    overflow-x: hidden; /* Elimina el desbordamiento horizontal */
+    overflow-x: hidden;
 }
 
 h1, h2 {
-    font-size: 2.5rem;
+    font-size: 2.3rem;
     color: rgb(222, 222, 222);
     text-align: center;
 }
@@ -22,12 +22,30 @@ p {
 
 /* Header y Navbar */
 header {
-    background-color: transparent; /* Totalmente transparente */
-    position: absolute; /* Coloca el header sobre el video */
+    background-color: transparent;
+    position: absolute;
     top: 0;
     width: 100%;
-    z-index: 10; /* Asegura que el header esté encima del video */
-    padding: 20px 0; /* Ajusta el padding según sea necesario */
+    z-index: 10;
+    padding: 20px 0;
+}
+
+/* Banda negra inicial */
+.nav-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0; /* Altura inicial en 0 */
+    background-color: rgba(0, 0, 0, 0.978); /* Color negro semitransparente */
+    z-index: -1; /* Coloca detrás del nav */
+    transition: height 0.2s ease; /* Transición suave */
+    pointer-events: none; /* No bloquea clics en los elementos del nav */
+}
+
+/* Cuando haces hover en el nav o header */
+header:hover .nav-overlay {
+    height: 140px; /* Altura de la banda negra al hacer hover */
 }
 
 nav {
@@ -40,12 +58,12 @@ nav {
 }
 
 .logo img {
-    height: 130px;
-    width: 130px;
+    height: 175px;
+    width: 175px;
     border-radius: 100%;
     object-fit: cover;
     margin-left: -15px;
-    margin-top: 20px;
+    margin-top: 0px;
     border: 4px solid black;
 }
 
@@ -55,6 +73,7 @@ nav {
     align-items: center;
     margin: 0;
     padding: 0;
+    margin-top: -40px;
 }
 
 .nav-links li {
@@ -62,171 +81,143 @@ nav {
 }
 
 .nav-links a {
-    color: rgb(255, 255, 255); /* Asegúrate de que los enlaces sean visibles */
+    color: rgb(255, 255, 255); /* Color base del texto */
     text-decoration: none;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: bold;
-    padding: 8px 12px;
+    font-family: 'Roboto Condensed', sans-serif; /* Fuente estilizada y delgada */
+    font-weight: 180; /* Peso de la fuente para hacerla más delgada */
+    text-transform: uppercase; /* Para letras altas y uniformes */
+    font-size: 1.01rem; /* Tamaño ajustado para altura */
+    letter-spacing: 2px; /* Espaciado entre letras para un diseño más limpio */
+    padding: 4px 12px;
     border-radius: 4px;
     transition: color 0.2s ease, text-shadow 0.3s ease;
 }
 
-/* Hover effects por colores de cinturones */
-.nav-links li:nth-child(1) a:hover {
-    color: rgba(255, 255, 255, 0.737); /* Cinturón blanco */
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+.nav-links a:hover {
+    color: #ff9900; /* Color naranja brillante al hacer hover */
+    text-shadow: 0 0 10px #ff9900, 0 0 20px #ff9900, 0 0 30px #ff9900; /* Efecto de brillo */
 }
 
-.nav-links li:nth-child(2) a:hover {
-    color: #1c88e6d4; /* Cinturón azul */
-    text-shadow: 0 0 10px rgba(28, 136, 230, 0.8);
-}
-
-.nav-links li:nth-child(3) a:hover {
-    color: #8d44ade7; /* Cinturón morado */
-    text-shadow: 0 0 10px rgba(142, 68, 173, 0.8);
-}
-
-.nav-links li:nth-child(4) a:hover {
-    color: #964b00c6; /* Cinturón marrón */
-    text-shadow: 0 0 10px rgba(150, 75, 0, 0.8);
-}
-
-.nav-links li:nth-child(5) a:hover {
-    color: rgba(0, 0, 0, 0.801); /* Cinturón negro */
-    text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
-}
-
-/* Video de Fondo */
+/* Video de Fondo con Carrusel */
 .video-section {
     position: relative;
     width: 100%;
-    height: 100vh; /* Ocupa toda la altura de la ventana */
+    height: 100vh;
+    overflow: hidden;
+}
+.video-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     overflow: hidden;
 }
 
-.video-section video {
+video {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    height: 80%;
-    object-fit: cover; /* Asegura que el video cubra todo el fondo */
-    z-index: -1; /* Coloca el video detrás del header */
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 1s ease-in-out; /* Efecto de transición */
 }
 
+video.hidden {
+    opacity: 0; /* Oculta el video */
+    pointer-events: none; /* Desactiva la interacción */
+}
+
+.video-container.fade {
+    animation: fadeEffect 0.5s ease-in-out;
+}
+
+/* Estilo del botón Contact Us */
+/* Estilo del botón Contact Us */
+.btn-contact {
+    display: inline-block;
+    margin-top: -5px; /* Espacio entre el texto y el botón */
+    padding: 12px 40px; /* Proporciones del botón */
+    background-color: white; /* Fondo blanco */
+    color: black; /* Texto negro */
+    text-decoration: none; /* Sin subrayado */
+    font-family: 'Roboto Condensed', sans-serif; /* Fuente */
+    font-size: 1rem; /* Tamaño de fuente */
+    font-weight: 1000; /* Negrita */
+    text-align: center; /* Centra el texto */
+    border: 1px solid white; /* Borde blanco */
+    border-radius: 0; /* Sin redondear */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Animación suave */
+    position: relative; /* Necesario para centrarlo dentro del contenedor */
+}
+
+/* Efecto hover */
+.btn-contact:hover {
+    background-color: #e0e0e0; /* Fondo ligeramente más oscuro */
+    color: black; /* Texto negro */
+    cursor: pointer;
+}
+
+/* Centrar el botón en el contenedor */
+.video-overlay {
+    display: flex;
+    flex-direction: column; /* Alinea los elementos en columna */
+    align-items: center; /* Centra horizontalmente */
+    justify-content: center; /* Centra verticalmente */
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    color: white;
+}
+
+
+
+@keyframes fadeEffect {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.video-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: white;
+    cursor: pointer;
+    z-index: 2;
+}
+
+#prev-video {
+    left: 10px;
+}
+
+#next-video {
+    right: 10px;
+}
+
+.video-nav:hover {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* Video Overlay */
 .video-overlay {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    text-align: center;
-    color: white;
-    z-index: 1; /* Coloca el texto sobre el video */
-    transition: text-shadow 0.2s ease;
-}
-
-.video-overlay h1:hover, .video-overlay p:hover {
-    text-shadow: 0 0 20px rgba(255, 255, 255, 1);
-}
-
-.video-overlay h1 {
-    font-size: 3.5rem;
-    margin-bottom: 20px;
-}
-
-.video-overlay p {
-    font-size: 1.5rem;
-    margin: 0;
-}
-
-/* Secciones */
-section {
-    padding: 100px 20px;
-    min-height: 100vh;
-}
-
-/* Time Table */
-#time-table {
-    background-color: #1a1a1a;
-    color: white;
-    text-align: center;
-    padding: 50px 20px;
-}
-
-.schedule {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr); /* Solo lunes a viernes */
-    gap: 20px;
-    margin-top: 30px;
-}
-
-.day {
-    background-color: #121212;
-    border: 1px solid #333;
-    border-radius: 8px;
-    padding: 15px;
     text-align: left;
-}
-
-.day h3 {
-    text-align: center;
-    color: #f8f9fa;
-    font-size: 1.2rem;
-    margin-bottom: 10px;
-}
-
-.class {
-    background-color: #fff;
-    color: #333;
-    border-left: 4px solid #007bff; /* Cambia según el tipo de clase */
-    margin: 10px 0;
-    padding: 10px;
-    border-radius: 4px;
-    font-size: 0.9rem;
-}
-
-.class.private {
-    background-color: #444;
-    color: #bbb;
-    text-align: center;
-    border-left: 4px solid #777;
-}
-
-.class.jiujitsu {
-    background-color: #1c88e6;
+    margin-left: 100;
     color: white;
-    border-left: 4px solid #1c88e6;
-}
-
-.class.nogi {
-    background-color: #8e44ad;
-    color: white;
-    border-left: 4px solid #8e44ad;
-}
-
-.class span {
-    display: block;
-    margin-top: 5px;
-    font-weight: bold;
-}
-
-#jiu-jitsu {
-    background-color: #e9e9e9;
-}
-
-#about-us {
-    background-color: #f4f4f4;
-}
-
-#contact {
-    background-color: #e9e9e9;
-}
-
-/* Footer */
-footer {
-    background-color: #333;
-    color: white;
-    text-align: center;
-    padding: 10px 0;
+    z-index: 1;
 }

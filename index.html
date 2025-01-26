@@ -3,11 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Academia de BJJ</title>
+    <title>TriboJiuJitsubpt</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700,700i&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,300,400,700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- Header y Navbar -->
     <header>
+        <div class="nav-overlay"></div>
         <nav>
             <div class="logo">
                 <img src="imagenes/logo.jpg" alt="Logo">
@@ -17,71 +22,93 @@
                 <li><a href="#jiu-jitsu">Jiu Jitsu</a></li>
                 <li><a href="#about-us">About Us</a></li>
                 <li><a href="#contact">Contact</a></li>
-                <li>
-                    <div class="language-selector">
-                        <button id="language-button">Language</button>
-                        <ul id="language-dropdown" class="hidden">
-                            <li><a href="#">English</a></li>
-                            <li><a href="#">Português</a></li>
-                        </ul>
-                    </div>
-                </li>
+                <li><a href="idiomas.html">Language</a></li>
             </ul>
         </nav>
     </header>
     
 
-    <section id="inicio" class="hero">
-        <div class="hero-content">
-            <h1>Bienvenido a [Nombre de la Academia]</h1>
-            <p>Descubre el arte del Jiu-Jitsu Brasileño con nosotros.</p>
-            <a href="#clases" class="cta-button">Ver Clases</a>
+    <!-- Video de Fondo con Carrusel -->
+    <section class="video-section">
+        <div class="video-container">
+            <video id="video1" autoplay muted loop playsinline>
+                <source src="imagenes/videofondo3.mp4" type="video/mp4">
+            </video>
+            <video id="video2" muted loop playsinline class="hidden">
+                <source src="imagenes/videofondo2.mp4" type="video/mp4">
+            </video>
+            <button id="prev-video" class="video-nav">&lt;</button>
+            <button id="next-video" class="video-nav">&gt;</button>
+        </div>
+        <div class="video-overlay">
+            <h1>START YOUR JOURNEY IN BRAZILIAN JIU JITSU</h1>
+            <a href="#contact" class="btn-contact">Contact Us</a>
         </div>
     </section>
+    
 
-    <section id="clases" class="classes">
-        <h2>Nuestras Clases</h2>
-        <div class="class-list">
-            <div class="class-item">
-                <img src="ruta/a/imagen1.jpg" alt="Clase 1">
-                <h3>Clase para Principiantes</h3>
-                <p>Descripción breve de la clase para principiantes.</p>
+    <!-- Secciones de la Página -->
+    <main>
+        <section id="time-table">
+            <h2>Our Classes</h2>
+            <div class="schedule">
+                <div class="day">
+                    <h3>Monday</h3>
+                    <div class="class">
+                        <p>Fit Boxing</p>
+                        <span>09:30 - 10:30</span>
+                    </div>
+                    <div class="class">
+                        <p>Strength & Conditioning</p>
+                        <span>10:30 - 12:30</span>
+                    </div>
+                    <div class="class">
+                        <p>Private Classes</p>
+                        <span class="private">-</span>
+                    </div>
+                </div>
+                <div class="day">
+                    <h3>Tuesday</h3>
+                    <div class="class">
+                        <p>Kickboxing / Muay Thai</p>
+                        <span>09:30 - 10:30</span>
+                    </div>
+                    <div class="class">
+                        <p>Strength & Conditioning</p>
+                        <span>10:30 - 12:30</span>
+                    </div>
+                    <div class="class">
+                        <p>BJJ</p>
+                        <span>12:30 - 14:00</span>
+                    </div>
+                </div>
+                <!-- Repite los días restantes -->
             </div>
-            <div class="class-item">
-                <img src="ruta/a/imagen2.jpg" alt="Clase 2">
-                <h3>Clase Avanzada</h3>
-                <p>Descripción breve de la clase avanzada.</p>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="entrenadores" class="trainers">
-        <h2>Conoce a Nuestros Entrenadores</h2>
-        <div class="trainer-list">
-            <div class="trainer-item">
-                <img src="ruta/a/entrenador1.jpg" alt="Entrenador 1">
-                <h3>Nombre del Entrenador</h3>
-                <p>Breve biografía o descripción.</p>
-            </div>
-        </div>
-    </section>
+        <section id="jiu-jitsu">
+            <h2>Jiu Jitsu</h2>
+            <p>Información sobre el Jiu Jitsu, beneficios, y otros detalles.</p>
+        </section>
 
-    <section id="contacto" class="contact">
-        <h2>Contacto</h2>
-        <form action="#" method="post">
-            <input type="text" name="nombre" placeholder="Tu Nombre" required>
-            <input type="email" name="email" placeholder="Tu Email" required>
-            <textarea name="mensaje" placeholder="Tu Mensaje" required></textarea>
-            <button type="submit">Enviar</button>
-        </form>
-        <div class="location">
-            <h3>Ubicación</h3>
-            <p>Dirección de la academia</p>
-        </div>
-    </section>
+        <section id="about-us">
+            <h2>About Us</h2>
+            <p>Historia de la academia, valores y más información sobre el equipo.</p>
+        </section>
 
+        <section id="contact">
+            <h2>Contact</h2>
+            <p>Email: contacto@academiabjj.com</p>
+            <p>Teléfono: +34 123 456 789</p>
+            <p>Dirección: Calle Ejemplo 123, Ciudad</p>
+        </section>
+    </main>
+
+    <!-- Footer -->
     <footer>
         <p>&copy; 2025 Academia de BJJ. Todos los derechos reservados.</p>
     </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
